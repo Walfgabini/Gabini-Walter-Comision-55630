@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% load static %}
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Transporte MV </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'aplicacion/css/bootstrap.css' %}" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="{% static 'aplicacion/css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'aplicacion/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'aplicacion/css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="{% static 'aplicacion/images/hero-bg.jpg' %}" alt="">
+    </div>
+    <!-- header section strats -->
+    <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+              <span>
+                  Trnasporte MV
+              </span>
+          </a>
+  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""></span>
+          </button>
+          <style>
+            .custom_nav-container {
+                margin-top: 20px;
+            }
+        </style>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'home' %}">Inicio <span class="sr-only">(current)</span></a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'empleados' %}">Empleados</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'cliente' %}">Cliente</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'bultos' %}">Bultos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'envio' %}">Envios</a>
+                  </li>
+                 
+                  <li class="nav-item">
+                    <div class="user-info d-flex align-items-center">
+                        <p style="color: yellow">Hola {{ user.username }}!</p>
+                        
+                            <img src="{{ request.session.avatar }}" height="40px" width="40px" alt="Avatar"/>
+                        
+                        <div class="ml-2 d-flex align-items-center">
+                            <a class="btn btn-outline-light" href="{% url 'editar_perfil' %}">Perfil</a>
+                            <a class="btn btn-outline-light" href="{% url 'logout' %}">Logout</a>
+                        </div>
+                    </div>
+                </li>
+                  {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'registro' %}">Registro</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'login' %}">Login</a>
+                  </li>
+                  {% endif %}
+              </ul>
+          </div>
+      </nav>
+  </div>
+            
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+ 
+  </div>
+  <div style="text-align: center;">
+    <h1 style="font-family: 'Poppins', sans-serif; letter-spacing: 2px;"">Pagina interna para empleados administrativos</h1>
+    <h2 style="font-family: 'Poppins', sans-serif; line-height: 1.5;">Se podra agregar, modificar y eliminar Empleados, Clientes, Bultos y Envios</h2>
+  </div>
+ 
+
+
+
+ {% block content %}
+   
+ {% endblock content %}
+
+ 
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-col">
+          <div class="footer_contact">
+            <h4>
+              Contacto
+            </h4>
+            <div class="contact_link_box">
+              <p>
+                Italia 5654
+              </p>
+              <p>
+                Contacto: +54 (341) 320-5621
+              </p>
+              <p>
+                Email: transportemv2020@gmail.com
+              </p>
+              
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <div class="footer_detail">
+            <a href="" class="footer-logo">
+              Transporte MV
+            </a>
+            <p>
+              Logistica y Distribución / Rosario - Buenos Aires
+            </p>
+            <div class="footer_social">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="https://www.facebook.com/p/Transporte-MV-100064041042949/">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-pinterest" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 footer-col">
+          <h4>
+            Horario de atención
+          </h4>
+          <p>
+            Lunes a Viernes
+          </p>
+          <p>
+            09.00 Am - 05.00 Pm
+          </p>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          <a class="nav-link" href="{% url 'acerca_de_mi' %}">Acerca de mi </a>
+          &copy; <span id="displayYear"></span> Walter Gabini
+          <a href="https://html.design/">Trabajo Final Coderhouse</a><br><br>
+        
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'aplicacion/js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="{% static 'aplicacion/js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="{% static 'aplicacion/js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>

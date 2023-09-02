@@ -1,0 +1,31 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+<l1 class="sidebar-nav-item text-center">
+<h1 style="font-family: 'Poppins', sans-serif;"> Agregar Bultos </h1>
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+
+<style>
+    .form-container {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f8f9;
+    }
+</style>
+
+<li class="sidebar-nav-item text-center" style="margin-top: 20px;">
+    <a href="{% url 'bultos' %}" class="btn btn-outline-primary custom-btn-short" style="background-color: #3498db; color: #fff;">Ver Bultos</a>
+</li>
+
+
+{% endblock content %}

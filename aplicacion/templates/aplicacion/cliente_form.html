@@ -1,0 +1,27 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+<div class="form-container">
+<h2 style="font-family: 'Poppins', sans-serif;">Cliente nuevo</h2>
+<form action="" method="POST">
+    {% csrf_token %} 
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Enviar">
+    <style>
+        .form-container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f8f9;
+            max-width: 400px;
+            width: 100%;
+            border-radius: 10px; /* Agrega bordes redondeados */
+        }
+    </style>
+
+
+
+</form>
+{% endblock content %}
+    

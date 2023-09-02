@@ -1,0 +1,36 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+<div style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+    <h1>{{ titulo }}</h1>
+    <div class="login-container">
+        <h2 style="font-family: 'Poppins', sans-serif;">Login</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <!-- Agregamos un estilo para el espacio entre botones -->
+    <style>
+        .btn-space {
+            margin-top: 20px;
+        }
+
+        .login-container {
+            background-color: #f7f7f7;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+    </style>
+
+    
+</div>
+{% endblock content %}

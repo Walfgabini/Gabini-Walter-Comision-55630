@@ -1,0 +1,15 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+<h1> {{ titulo }} </h1>
+<h2>Agregar Avatar</h2>
+<!-- enctype significa que lo que va a viajar son binarios-->
+<form action="" method="post" enctype="multipart/form-data"> 
+
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Crear Avatar">
+</form>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+<div style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+    <h1>{{ titulo }}</h1>
+    <div class="registro-container">
+        <h2 style="font-family: 'Poppins', sans-serif;">Registro</h2>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Crear usuario">
+        </form>
+    </div>
+
+    
+    <style>
+        .btn-space {
+            margin-top: 20px;
+        }
+
+        .registro-container {
+            background-color: #76C5FF;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+    </style>
+
+    <li class="sidebar-nav-item btn-space">
+        <a href="{% url 'agregar_avatar' %}" class="btn btn-primary">Agregar Avatar</a>
+    </li>
+</div>
+{% endblock content %}

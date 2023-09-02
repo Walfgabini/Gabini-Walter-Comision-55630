@@ -1,0 +1,54 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="bultos-container">
+    <h2 style="font-family: 'Poppins', sans-serif;">Listado de Bultos</h2>
+    <div class="d-flex align-items-center">
+        <h4 style="font-family: 'Poppins', sans-serif; margin-right: 10px;">Agregar</h4>
+        <h4 style="font-family: 'Poppins', sans-serif; margin-right: 10px;">Bultos</h4>
+        <a href="{% url 'bulto_form' %}" class="btn btn-primary btn-sm">
+            <i class="fa fa-plus fa-lg" title="New Record"></i>
+        </a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripción</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bulto in bultos %}
+            <tr>
+                <td>{{ bulto.id }}</td>
+                <td>{{ bulto.descripcion }}</td>
+                <td>{{ bulto.cantidad }}</td>
+                <td>
+                    <a href="{% url 'update_bulto' pk=bulto.id %}" class="btn btn-primary">
+                        <i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a href="{% url 'delete_bulto' pk=bulto.id %}" class="btn btn-danger">
+                        <i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .bultos-container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f8f9;
+        border-radius: 10px;
+    }
+</style>
+
+{% endblock content %}

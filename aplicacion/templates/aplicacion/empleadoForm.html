@@ -1,0 +1,33 @@
+{% extends "aplicacion/base.html" %}
+{% load static %}
+{% block content %}
+<h1> {{ titulo }} </h1>
+<table class="table table-dark table-striped">
+
+</table>
+
+<div class="form-container">
+    <h2 style="font-family: 'Poppins', sans-serif; text-align: center;">Empleado Nuevo</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div style="text-align: center;"> 
+            <p>Empleado: <input type="text" name="nombre" id="nombre"></p>
+            <p>Cargo: <input type="text" name="cargo" id="cargo"></p>
+            <p>Fecha de Contratación: <input type="date" name="fecha_contratacion" id="fecha_contratacion"></p>
+            <input type="submit" value="Ingresar">
+        </div>
+    </form>
+</div>
+
+<style>
+    .form-container {
+        width: 20%; /* Ajusta el ancho según tus preferencias */
+        margin: 0 auto; /* Centra horizontalmente */
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f8f9;
+        border-radius: 30px; /* Agrega bordes redondeados */
+    }
+</style>
+
+{% endblock content %}
